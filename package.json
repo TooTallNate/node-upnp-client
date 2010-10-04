@@ -1,0 +1,12 @@
+{
+  "name": "upnp-client",
+  "description": "A Client Library to interface with UPnP compliant devices.",
+  "version": "0.0.0",
+  "author": "Nathan Rajlich <nathan@tootallnate.net>",
+  "dependencies": {
+    "step": ">= 0.0.3"
+  },
+  "keywords": ["UPnP", "devices", "client", "library", ""],
+  "main": "./lib/upnp",
+  "engines": { "node": ">= 0.2.0" }
+}
