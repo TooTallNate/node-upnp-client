@@ -35,24 +35,26 @@ UPnP-related:
 #### Description
 
 Once a device is "discovered", there's still not very much known about the device other
-than it's _root_ device type. The `getDescription` function needs to be called on a
-"deviceInfo" object to determine which services, child devices, events, etc. the device
-implements. The `prototype` of the deviceInfo object gets extended to reflect the parsed
+than it's _root_ device type. The `loadDescription` function needs to be called on a
+"device" object to determine which services, child devices, events, etc. the device
+implements. The `prototype` of the device object gets extended to reflect the parsed
 description of the device:
 
-    device.getDescription(function(err) {
-      device.serviceList
+    device.loadDescription(function(err) {
+      console.log(device);
+      // 'device' is now populated with a lot more properties
     });
 
 #### Control
 
 Invoking the services that a device exposes is probably your primary concern with
-interacting with a UPnP device:
+interacting with a UPnP device. `GetExternalIPAddress` is an example of an _action_
+exposed from a _WANIPConnection_ service:
 
-  device.GetExternalIPAddress(function(err, ip) {
-    console.log(ip);
-      //-> "1.1.1.1"
-  });
+    device.GetExternalIPAddress(function(err, ip) {
+      console.log(ip);
+        //-> "1.1.1.1"
+    });
 
 #### Event Notification
 
@@ -60,11 +62,11 @@ Individual device "service"s often emit their own events when certain properties
 of the device change. Use the `notification` event of Device or Service
 instances to invoke a callback whenever a notification is emitter from the device:
 
-  device.on("notification", function(properties) {
-    for (var i in properties) {
-      console.log(i + ": " + properties[i]);
-    }
-  });
+    device.on("notification", function(properties) {
+      for (var i in properties) {
+        console.log(i + ": " + properties[i]);
+      }
+    });
 
 
 [UPnP]: http://upnp.org/
