@@ -2,7 +2,7 @@
   "name": "upnp-client",
   "description": "A Client Library to interface with UPnP compliant devices.",
   "version": "0.0.0",
-  "author": "Nathan Rajlich <nathan@tootallnate.net>",
+  "author": "Nathan Rajlich <nathan@tootallnate.net>, Pierre Buyle <pierre@buyle.org>",
   "dependencies": {
     "step": ">= 0.0.3"
   },
